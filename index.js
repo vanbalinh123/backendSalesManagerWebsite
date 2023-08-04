@@ -133,7 +133,8 @@ app.get('/userLogin', authenticateJWT, (req, res) => {
   const userLogin = {
     id: user.id,
     email: user.email,
-    username: user.username
+    username: user.username,
+    avatar: user.avatar,
   }
 
   res.json(userLogin);
