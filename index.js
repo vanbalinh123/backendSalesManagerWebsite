@@ -83,7 +83,6 @@ const users = [
   },
 ]
 
-
 app.get('/', (req, res) => {
   res.send('LetDiv');
 });
@@ -142,7 +141,7 @@ app.get('/userLogin', authenticateJWT, (req, res) => {
 
 app.get('/products', authenticateJWT, (req, res) => {
   const { id } = req.user;
-  const { name, code } = req.query;
+  const { name, code, productGroups, trademark } = req.query;
   const userProducts = users.find((u) => u.id === id)?.products || [];
 
   let filteredProducts = userProducts;
@@ -153,6 +152,14 @@ app.get('/products', authenticateJWT, (req, res) => {
 
   if (code) {
     filteredProducts = filteredProducts.filter(item => item.code.toLowerCase() === code.toLowerCase());
+  }
+
+  if (productGroups) {
+    filteredProducts = filteredProducts.filter(item => item.productGroups.toLowerCase() === productGroups.toLowerCase());
+  }
+
+  if (trademark) {
+    filteredProducts = filteredProducts.filter(item => item.trademark.toLowerCase() === trademark.toLowerCase());
   }
 
   res.json(filteredProducts);
