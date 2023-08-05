@@ -146,14 +146,13 @@ app.get('/products', authenticateJWT, (req, res) => {
 
   let filteredProducts = userProducts;
 
-  if (name) {
-    filteredProducts = filteredProducts.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
+  if (name || code) {
+    filteredProducts = filteredProducts.filter(item =>
+      (name && item.name.toLowerCase().includes(name.toLowerCase())) ||
+      (code && item.code.toLowerCase().includes(code.toLowerCase()))
+    );
   }
-
-  if (code) {
-    filteredProducts = filteredProducts.filter(item => item.code.toLowerCase() === code.toLowerCase());
-  }
-
+  
   if (productGroups) {
     filteredProducts = filteredProducts.filter(item => item.productGroups.toLowerCase() === productGroups.toLowerCase());
   }
@@ -170,21 +169,28 @@ app.post('/products/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const { name, code, productGroups, trademark, quantity, describe, cost, price, img } = req.body;
-  const newProduct = {
-    id: nextId(target.products),
-    name,
-    code,
-    productGroups,
-    trademark,
-    quantity,
-    describe,
-    cost,
-    price,
-    img,
-  };
-  target.products.push(newProduct);
+  
+  const exist = target.products.find(item => item.code === code);
 
-  res.status(201).json({ message: 'Product added successfully!' });
+  if(exist === undefined) {
+    const newProduct = {
+      id: nextId(target.products),
+      name,
+      code,
+      productGroups,
+      trademark,
+      quantity,
+      describe,
+      cost,
+      price,
+      img,
+    };
+    target.products.push(newProduct);
+  
+    res.status(201).json({ message: 'Product added successfully!' });
+  } else {
+    return res.status(422).json({ message: 'Error!!! Code of product is existed!' });
+  }
 });
 
 
@@ -208,14 +214,20 @@ app.post('/productGroups/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const { nameProductGroup } = req.body;
-
-  const newProductGroup = {
-    id: nextId(target.productGroups),
-    name: nameProductGroup
-  }
-  target.productGroups.push(newProductGroup);
-
-  res.json(newProductGroup);
+  
+  const exist = target.productGroups.find(item => item.name === nameProductGroup)
+  
+  if(exist === undefined) {
+    const newProductGroup = {
+      id: nextId(target.productGroups),
+      name: nameProductGroup
+    }
+    target.productGroups.push(newProductGroup);
+  
+    res.json(newProductGroup);
+  } else {
+    return res.status(422).json({ message: 'Error!!! Your Product Groups is existed!' });
+  } 
 })
 
 app.get('/trademark', authenticateJWT, (req, res) => {
