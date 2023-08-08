@@ -152,7 +152,7 @@ app.get('/products', authenticateJWT, (req, res) => {
       (code && item.code.toLowerCase().includes(code.toLowerCase()))
     );
   }
-  
+
   if (productGroups) {
     filteredProducts = filteredProducts.filter(item => item.productGroups.toLowerCase() === productGroups.toLowerCase());
   }
@@ -169,10 +169,10 @@ app.post('/products/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const { name, code, productGroups, trademark, quantity, describe, cost, price, img } = req.body;
-  
+
   const exist = target.products.find(item => item.code === code);
 
-  if(exist === undefined) {
+  if (exist === undefined) {
     const newProduct = {
       id: nextId(target.products),
       name,
@@ -186,12 +186,51 @@ app.post('/products/add', authenticateJWT, (req, res) => {
       img,
     };
     target.products.push(newProduct);
-  
+
     res.status(201).json({ message: 'Product added successfully!' });
   } else {
     return res.status(422).json({ message: 'Error!!! Code of product is existed!' });
   }
 });
+
+app.post('/product/update', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id, name, code, productGroups, trademark, quantity, describe, cost, price, img } = req.body;
+  const target = users.find(item => item.id === idUser);
+  const product = target.products.find(item => item.id === id);
+  const exist = target.products.find(item => item.code === code);
+
+  if (exist === undefined || product.code === code) {
+    product.name = name;
+    product.code = code;
+    product.productGroups = productGroups;
+    product.trademark = trademark;
+    product.quantity = quantity;
+    product.describe = describe;
+    product.cost = cost;
+    product.price = price;
+    product.img = img;
+  } else {
+    return res.status(422).json({ message: 'Error!!! Code of product is existed!' });
+  }
+
+  res.status(200).json({ message: 'Product updated successfully!' });
+})
+
+app.delete('/product/delete/:id', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id: idProduct } = req.params;
+  const target = users.find(item => item.id === idUser);
+
+  const deletedIndex = target.products.findIndex(item => item.id === Number(idProduct));
+
+  if (deletedIndex !== -1) {
+    const deletedItem = target.products.splice(deletedIndex, 1)[0];
+    res.json(deletedItem);
+  } else {
+    res.sendStatus(404);
+  }
+})
 
 
 app.get('/productGroups', authenticateJWT, (req, res) => {
@@ -214,25 +253,41 @@ app.post('/productGroups/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const { nameProductGroup } = req.body;
-  
+
   const exist = target.productGroups.find(item => item.name === nameProductGroup)
-  
-  if(exist === undefined) {
+
+  if (exist === undefined) {
     const newProductGroup = {
       id: nextId(target.productGroups),
       name: nameProductGroup
     }
     target.productGroups.push(newProductGroup);
-  
+
     res.json(newProductGroup);
   } else {
     return res.status(422).json({ message: 'Error!!! Your Product Groups is existed!' });
-  } 
+  }
+})
+
+app.post('/productGroups/update', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id: idProductGroup, name: nameProductGroup } = req.body;
+
+  const target = users.find(item => item.id === idUser);
+  const productGroup = target.productGroups.find(item => item.id === idProductGroup);
+  const exist = target.productGroups.find(item => item.name === nameProductGroup);
+
+  if (exist === undefined || productGroup.name === nameProductGroup) {
+    productGroup.name = nameProductGroup;
+  } else {
+    return res.status(422).json({ message: 'Error!!! Name of product group is existed!' });
+  }
+
+  res.status(200).json({ message: 'Product group updated successfully!' });
 })
 
 app.get('/trademark', authenticateJWT, (req, res) => {
   const { id } = req.user;
-  console.log(id)
   const userTrademark = users.find(u => u.id === id)?.trademark || [];
   res.json(userTrademark)
 });
