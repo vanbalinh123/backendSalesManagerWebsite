@@ -286,6 +286,21 @@ app.post('/productGroups/update', authenticateJWT, (req, res) => {
   res.status(200).json({ message: 'Product group updated successfully!' });
 })
 
+app.delete('/productGroup/delete/:id', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id: idProductGroup } = req.params;
+  const target = users.find(item => item.id === idUser);
+
+  const deletedIndex = target.productGroups.findIndex(item => item.id === Number(idProductGroup));
+
+  if (deletedIndex !== -1) {
+    const deletedItem = target.productGroups.splice(deletedIndex, 1)[0];
+    res.json(deletedItem);
+  } else {
+    res.sendStatus(404);
+  }
+})
+
 app.get('/trademark', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const userTrademark = users.find(u => u.id === id)?.trademark || [];
