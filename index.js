@@ -10,8 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 function nextId(list) {
-  const maxId = list[list.length - 1].id;
-  return maxId + 1
+  // const maxId = list[list.length - 1].id;
+  // return maxId + 1
+  if (list.length === 0) {
+    return 1;
+  } else {
+    const maxId = list[list.length - 1].id;
+    return maxId + 1;
+  }
 }
 
 const users = [
@@ -106,6 +112,19 @@ app.post('/register', (req, res) => {
     username,
     email,
     password,
+    avatar: '',
+    products: [],
+    productGroups: [],
+    trademark: [
+      { id: 1, name: 'Apple' },
+      { id: 2, name: 'Samsung' },
+      { id: 3, name: 'Asus' },
+      { id: 4, name: 'Xiaomi' },
+      { id: 5, name: 'MSI' },
+      { id: 6, name: 'Acer' },
+      { id: 7, name: 'HP' },
+      { id: 8, name: 'Dell' },
+    ]
   };
   users.push(newUser);
 
@@ -253,6 +272,10 @@ app.post('/productGroups/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const { nameProductGroup } = req.body;
+
+  // if (!target.productGroups) {
+  //   target.productGroups = [];
+  // }
 
   const exist = target.productGroups.find(item => item.name === nameProductGroup)
 
