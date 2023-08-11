@@ -24,14 +24,38 @@ const users = [
   {
     id: 1, username: 'Van Ba Linh', email: 'vanbalinh080102@gmail.com', password: 'Linh123',
     products: [
-      { id: 1, name: "Chuot sin", code: 'A12', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
-      { id: 2, name: "Ban phim sin", code: 'A13', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
-      { id: 3, name: "Loa sin", code: 'A14', productGroups: "Loudspeaker", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/2162/235205/bluetoth-jbl-charge-4-den-1-org.jpg" },
-      { id: 4, name: "Man hinh sin", code: 'A15', productGroups: "Screen", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://manhinhmaytinhcu.net/wp-content/uploads/2021/05/man-hinh-dell-p2419h-cu.jpg" },
-      { id: 5, name: "Ipad sin", code: 'A16', productGroups: "iPads", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/i/p/ipad-2022-hero-blue-wifi-select.png" },
-      { id: 6, name: "May tinh sin", code: 'A17', productGroups: "Computers", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/laptop/May-tinh-de-ban-11.jpg" },
-      { id: 7, name: "Day cap sin", code: 'A18', productGroups: "Cables", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://binhminhdigital.com/storedata/images/product/day-cap-ket-noi-may-anh-canon-voi-may-tinh.jpg" },
-      { id: 8, name: "Laptop sin", code: 'A19', productGroups: "Laptops", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true" },
+      { id: 1, name: "Chuot sin", code: 'A1', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
+      { id: 2, name: "Ban phim sin", code: 'A2', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
+      { id: 3, name: "Loa sin", code: 'A3', productGroups: "Loudspeaker", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/2162/235205/bluetoth-jbl-charge-4-den-1-org.jpg" },
+      { id: 4, name: "Man hinh sin", code: 'A4', productGroups: "Screen", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://manhinhmaytinhcu.net/wp-content/uploads/2021/05/man-hinh-dell-p2419h-cu.jpg" },
+      { id: 5, name: "Ipad sin", code: 'A5', productGroups: "iPads", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/i/p/ipad-2022-hero-blue-wifi-select.png" },
+      { id: 6, name: "May tinh sin", code: 'A6', productGroups: "Computers", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/laptop/May-tinh-de-ban-11.jpg" },
+      { id: 7, name: "Day cap sin", code: 'A7', productGroups: "Cables", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://binhminhdigital.com/storedata/images/product/day-cap-ket-noi-may-anh-canon-voi-may-tinh.jpg" },
+      { id: 8, name: "Laptop sin", code: 'A8', productGroups: "Laptops", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true" },
+      { id: 9, name: "Chuot sin 2", code: 'A9', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
+      { id: 10, name: "Ban phim sin 2", code: 'A10', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
+      { id: 11, name: "Loa sin 2", code: 'A11', productGroups: "Loudspeaker", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/2162/235205/bluetoth-jbl-charge-4-den-1-org.jpg" },
+      { id: 12, name: "Man hinh sin 2", code: 'A12', productGroups: "Screen", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://manhinhmaytinhcu.net/wp-content/uploads/2021/05/man-hinh-dell-p2419h-cu.jpg" },
+      { id: 13, name: "Ipad sin 2", code: 'A13', productGroups: "iPads", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/i/p/ipad-2022-hero-blue-wifi-select.png" },
+      { id: 14, name: "May tinh sin 2", code: 'A14', productGroups: "Computers", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/laptop/May-tinh-de-ban-11.jpg" },
+      { id: 15, name: "Day cap sin 2", code: 'A15', productGroups: "Cables", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://binhminhdigital.com/storedata/images/product/day-cap-ket-noi-may-anh-canon-voi-may-tinh.jpg" },
+      { id: 16, name: "Laptop sin 2", code: 'A16', productGroups: "Laptops", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true" },
+      { id: 17, name: "Chuot sin 3", code: 'A17', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
+      { id: 18, name: "Ban phim sin 3", code: 'A18', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
+      { id: 19, name: "Loa sin 3", code: 'A19', productGroups: "Loudspeaker", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/2162/235205/bluetoth-jbl-charge-4-den-1-org.jpg" },
+      { id: 20, name: "Man hinh sin 3", code: 'A20', productGroups: "Screen", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://manhinhmaytinhcu.net/wp-content/uploads/2021/05/man-hinh-dell-p2419h-cu.jpg" },
+      { id: 21, name: "Ipad sin 3", code: 'A21', productGroups: "iPads", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/i/p/ipad-2022-hero-blue-wifi-select.png" },
+      { id: 22, name: "May tinh sin 3", code: 'A22', productGroups: "Computers", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/laptop/May-tinh-de-ban-11.jpg" },
+      { id: 23, name: "Day cap sin 3", code: 'A23', productGroups: "Cables", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://binhminhdigital.com/storedata/images/product/day-cap-ket-noi-may-anh-canon-voi-may-tinh.jpg" },
+      { id: 24, name: "Laptop sin 3", code: 'A24', productGroups: "Laptops", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true" },
+      { id: 25, name: "Chuot sin 4", code: 'A25', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
+      { id: 26, name: "Chuot sin 5", code: 'A26', productGroups: "Mouse", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
+      { id: 27, name: "Chuot sin 6", code: 'A27', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/2162/235205/bluetoth-jbl-charge-4-den-1-org.jpg" },
+      { id: 28, name: "Chuot sin 7", code: 'A28', productGroups: "Mouse", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://manhinhmaytinhcu.net/wp-content/uploads/2021/05/man-hinh-dell-p2419h-cu.jpg" },
+      { id: 29, name: "Chuot sin 8", code: 'A29', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/i/p/ipad-2022-hero-blue-wifi-select.png" },
+      { id: 30, name: "Chuot sin 9", code: 'A30', productGroups: "Mouse", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/laptop/May-tinh-de-ban-11.jpg" },
+      { id: 31, name: "Chuot sin 10", code: 'A31', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://binhminhdigital.com/storedata/images/product/day-cap-ket-noi-may-anh-canon-voi-may-tinh.jpg" },
+      { id: 32, name: "Chuot sin 11", code: 'A32', productGroups: "Mouse", trademark: "Xiaomi", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true" },
     ],
     productGroups: [
       { id: 1, name: "Mouse" },
@@ -160,11 +184,10 @@ app.get('/userLogin', authenticateJWT, (req, res) => {
 
 app.get('/products', authenticateJWT, (req, res) => {
   const { id } = req.user;
-  const { name, code, productGroups, trademark } = req.query;
+  const { name, code, productGroups, trademark, page } = req.query;
   const userProducts = users.find((u) => u.id === id)?.products || [];
-
   let filteredProducts = userProducts;
-
+  console.log(page)
   if (name || code) {
     filteredProducts = filteredProducts.filter(item =>
       (name && item.name.toLowerCase().includes(name.toLowerCase())) ||
@@ -180,8 +203,25 @@ app.get('/products', authenticateJWT, (req, res) => {
     filteredProducts = filteredProducts.filter(item => item.trademark.toLowerCase() === trademark.toLowerCase());
   }
 
-  res.json(filteredProducts);
+  const productsPerPage = 10;
+  const totalProducts = filteredProducts.length;
+  const currentPage = Number(page) || 0;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
 
+  const startIndex = currentPage * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+
+  const productsForPage = filteredProducts.slice(startIndex, endIndex);
+
+  res.json({
+    currentPage,
+    totalPages,
+    productsPerPage,
+    totalProducts,
+    products: productsForPage,
+  });
+
+  // res.json(filteredProducts);
 });
 
 app.post('/products/add', authenticateJWT, (req, res) => {
