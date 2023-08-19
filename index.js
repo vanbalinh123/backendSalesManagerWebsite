@@ -76,6 +76,682 @@ const users = [
       { id: 6, name: 'Acer' },
       { id: 7, name: 'HP' },
       { id: 8, name: 'Dell' },
+    ],
+    returnsCoupon: [
+      {
+        id: 1, nameUserReturn: 'Linh',
+        codeReturn: 'RT1',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 2, nameUserReturn: 'Linh',
+        codeReturn: 'RT2',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 3, nameUserReturn: 'Linh',
+        codeReturn: 'RT3',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 4, nameUserReturn: 'Linh',
+        codeReturn: 'RT4',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 5, nameUserReturn: 'Linh',
+        codeReturn: 'RT5',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 6, nameUserReturn: 'Linh',
+        codeReturn: 'RT6',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 7, nameUserReturn: 'Linh',
+        codeReturn: 'RT7',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 8, nameUserReturn: 'Linh',
+        codeReturn: 'RT8',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 9, nameUserReturn: 'Linh',
+        codeReturn: 'RT9',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 10, nameUserReturn: 'Linh',
+        codeReturn: 'RT10',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 11, nameUserReturn: 'Linh',
+        codeReturn: 'RT11',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-05-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+      {
+        id: 12, nameUserReturn: 'Linh',
+        codeReturn: 'RT12',
+        status: 'Return',
+        note: 'Hàng kém chất lượng',
+        date: '2023-06-07',
+        totalCost: 120000,
+        productsReturned: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantity: '3',
+            cost: '20000',
+            total: 60000
+          },
+        ]
+      },
+    ], 
+    importCoupon: [
+      {
+        id: 1, nameUserImport: 'Linh',
+        codeImport: 'IP1',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 2, nameUserImport: 'Linh',
+        codeImport: 'IP2',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 3, nameUserImport: 'Linh',
+        codeImport: 'IP3',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 4, nameUserImport: 'Linh',
+        codeImport: 'IP4',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 5, nameUserImport: 'Linh',
+        codeImport: 'IP5',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 6, nameUserImport: 'Linh',
+        codeImport: 'IP6',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 7, nameUserImport: 'Linh',
+        codeImport: 'IP7',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 8, nameUserImport: 'Linh',
+        codeImport: 'IP8',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 9, nameUserImport: 'Linh',
+        codeImport: 'IP9',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 10, nameUserImport: 'Linh',
+        codeImport: 'IP10',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 11, nameUserImport: 'Linh',
+        codeImport: 'IP11',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-02-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
+      {
+        id: 12, nameUserImport: 'Linh',
+        codeImport: 'IP12',
+        status: 'Import',
+        note: 'okee',
+        date: '2023-04-07',
+        totalCost: 800000,
+        productsImported: [
+          {
+            code: 'A1', name: 'Chuot sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A2', name: 'Ban phim sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A3', name: 'Loa sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          },
+          {
+            code: 'A4', name: 'Man hinh sin',
+            quantityAdd: "10",
+            cost: '20000',
+            total: 200000,
+          }
+        ]
+      },
     ]
   },
   {
@@ -187,7 +863,6 @@ app.get('/products', authenticateJWT, (req, res) => {
   const { name, code, productGroups, trademark, page } = req.query;
   const userProducts = users.find((u) => u.id === id)?.products || [];
   let filteredProducts = userProducts;
-  console.log(page)
   if (name || code) {
     filteredProducts = filteredProducts.filter(item =>
       (name && item.name.toLowerCase().includes(name.toLowerCase())) ||
@@ -227,9 +902,10 @@ app.get('/products', authenticateJWT, (req, res) => {
 app.post('/products/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
-  const { name, code, productGroups, trademark, quantity, describe, cost, price, img } = req.body;
+  const { name, code, productGroups, trademark, quantity, describe, cost, price, img, dateAdd } = req.body;
 
   const exist = target.products.find(item => item.code === code);
+
 
   if (exist === undefined) {
     const newProduct = {
@@ -364,12 +1040,73 @@ app.delete('/productGroup/delete/:id', authenticateJWT, (req, res) => {
   }
 })
 
+//trademark
 app.get('/trademark', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const userTrademark = users.find(u => u.id === id)?.trademark || [];
   res.json(userTrademark)
 });
 
+//warehouse
+app.get('/importCoupon', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const { code, page } = req.query;
+  const imported = users.find(u => u.id === id)?.importCoupon || [];
+  let filterImported = imported;
+  if (code) {
+    filterImported = filterImported.filter(item =>
+      item.codeImport.toLowerCase().includes(code.toLowerCase())
+    );
+  }
+
+  const importPerPage = 10;
+  const totalImport = filterImported.length;
+  const currentPage = Number(page) || 0;
+  const totalPages = Math.ceil(totalImport / importPerPage)
+
+  const startIndex = currentPage * importPerPage;
+  const endIndex = startIndex + importPerPage;
+
+  const importForPage = filterImported.slice(startIndex, endIndex)
+
+  res.json({
+    import: importForPage,
+    currentPage,
+    totalPages,
+    importPerPage,
+    totalImport
+  })
+});
+
+app.get('/returnCoupon', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const { code, page } = req.query;
+  const retunted = users.find(u => u.id === id)?.returnsCoupon || [];
+  let filterReturn = retunted;
+  if (code) {
+    filterReturn = filterReturn.filter(item =>
+      item.codeReturn.toLowerCase().includes(code.toLowerCase())
+    );
+  }
+
+  const returnPerPage = 10;
+  const totalReturn = filterReturn.length;
+  const currentPage = Number(page) || 0;
+  const totalPages = Math.ceil(totalReturn / returnPerPage)
+
+  const startIndex = currentPage * returnPerPage;
+  const endIndex = startIndex + returnPerPage;
+
+  const returnForPage = filterReturn.slice(startIndex, endIndex)
+
+  res.json({
+    return: returnForPage,
+    currentPage,
+    totalPages,
+    returnPerPage,
+    totalReturn
+  })
+});
 
 app.listen(port, () => {
   console.log(`LetDiv app listening on port ${port}`)
