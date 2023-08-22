@@ -354,25 +354,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -388,25 +388,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -422,25 +422,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -456,25 +456,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -490,25 +490,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -524,25 +524,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -558,25 +558,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -592,25 +592,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -626,25 +626,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -660,25 +660,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -694,25 +694,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -728,25 +728,25 @@ const users = [
         productsImported: [
           {
             code: 'A1', name: 'Chuot sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A2', name: 'Ban phim sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A3', name: 'Loa sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           },
           {
             code: 'A4', name: 'Man hinh sin',
-            quantityAdd: "10",
+            quantity: "10",
             cost: '20000',
             total: 200000,
           }
@@ -1078,6 +1078,29 @@ app.get('/importCoupon', authenticateJWT, (req, res) => {
   })
 });
 
+app.post('/importCoupon/add', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const target = users.find(item => item.id === id);
+  const {nameUserImport, status, note, date, totalCost, productsImported} = req.body;
+  
+  const newImport = {
+    id: nextId(target?.importCoupon),
+    nameUserImport: nameUserImport,
+    codeImport:  'IP' + nextId(target?.importCoupon),
+    status: status,
+    note: note,
+    date: date,
+    totalCost: totalCost,
+    productsImported: productsImported
+  }
+
+  target?.importCoupon.push(newImport)
+  // res.status(201).json({ message: 'Imported successfully!' });
+  res.json(newImport)
+})
+
+
+//return
 app.get('/returnCoupon', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const { code, page } = req.query;
