@@ -82,8 +82,13 @@ const users = [
         id: 1, nameUserReturn: 'Linh',
         codeReturn: 'RT1',
         status: 'Return',
+        codeImport: 'IP1',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '01',
+          month: '10',
+          year: '2022'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -103,9 +108,14 @@ const users = [
       {
         id: 2, nameUserReturn: 'Linh',
         codeReturn: 'RT2',
+        codeImport: 'IP2',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '02',
+          month: '11',
+          year: '2022'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -125,9 +135,14 @@ const users = [
       {
         id: 3, nameUserReturn: 'Linh',
         codeReturn: 'RT3',
+        codeImport: 'IP3',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '03',
+          month: '12',
+          year: '2022'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -147,9 +162,14 @@ const users = [
       {
         id: 4, nameUserReturn: 'Linh',
         codeReturn: 'RT4',
+        codeImport: 'IP4',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '04',
+          month: '01',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -169,9 +189,14 @@ const users = [
       {
         id: 5, nameUserReturn: 'Linh',
         codeReturn: 'RT5',
+        codeImport: 'IP5',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '05',
+          month: '02',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -191,9 +216,14 @@ const users = [
       {
         id: 6, nameUserReturn: 'Linh',
         codeReturn: 'RT6',
+        codeImport: 'IP6',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '06',
+          month: '03',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -213,9 +243,14 @@ const users = [
       {
         id: 7, nameUserReturn: 'Linh',
         codeReturn: 'RT7',
+        codeImport: 'IP7',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '07',
+          month: '04',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -235,9 +270,14 @@ const users = [
       {
         id: 8, nameUserReturn: 'Linh',
         codeReturn: 'RT8',
+        codeImport: 'IP8',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '08',
+          month: '05',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -257,9 +297,14 @@ const users = [
       {
         id: 9, nameUserReturn: 'Linh',
         codeReturn: 'RT9',
+        codeImport: 'IP9',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '09',
+          month: '06',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -279,9 +324,14 @@ const users = [
       {
         id: 10, nameUserReturn: 'Linh',
         codeReturn: 'RT10',
+        codeImport: 'IP10',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '10',
+          month: '07',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -301,9 +351,14 @@ const users = [
       {
         id: 11, nameUserReturn: 'Linh',
         codeReturn: 'RT11',
+        codeImport: 'IP11',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-05-07',
+        date: {
+          day: '11',
+          month: '08',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -323,9 +378,14 @@ const users = [
       {
         id: 12, nameUserReturn: 'Linh',
         codeReturn: 'RT12',
+        codeImport: 'IP12',
         status: 'Return',
         note: 'Hàng kém chất lượng',
-        date: '2023-06-07',
+        date: {
+          day: '12',
+          month: '08',
+          year: '2023'
+        },
         totalCost: 120000,
         productsReturned: [
           {
@@ -349,7 +409,11 @@ const users = [
         codeImport: 'IP1',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '01',
+          month: '10',
+          year: '2022'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -383,7 +447,11 @@ const users = [
         codeImport: 'IP2',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '02',
+          month: '11',
+          year: '2022'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -417,7 +485,11 @@ const users = [
         codeImport: 'IP3',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '03',
+          month: '12',
+          year: '2022'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -451,7 +523,11 @@ const users = [
         codeImport: 'IP4',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '04',
+          month: '01',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -485,7 +561,11 @@ const users = [
         codeImport: 'IP5',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '05',
+          month: '02',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -519,7 +599,11 @@ const users = [
         codeImport: 'IP6',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '06',
+          month: '03',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -553,7 +637,11 @@ const users = [
         codeImport: 'IP7',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '07',
+          month: '04',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -587,7 +675,11 @@ const users = [
         codeImport: 'IP8',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '08',
+          month: '05',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -621,7 +713,11 @@ const users = [
         codeImport: 'IP9',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '09',
+          month: '06',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -655,7 +751,11 @@ const users = [
         codeImport: 'IP10',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '10',
+          month: '07',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -689,7 +789,11 @@ const users = [
         codeImport: 'IP11',
         status: 'Import',
         note: 'okee',
-        date: '2023-02-07',
+        date: {
+          day: '11',
+          month: '08',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -723,7 +827,11 @@ const users = [
         codeImport: 'IP12',
         status: 'Import',
         note: 'okee',
-        date: '2023-04-07',
+        date: {
+          day: '12',
+          month: '08',
+          year: '2023'
+        },
         totalCost: 800000,
         productsImported: [
           {
@@ -1050,13 +1158,25 @@ app.get('/trademark', authenticateJWT, (req, res) => {
 //warehouse
 app.get('/importCoupon', authenticateJWT, (req, res) => {
   const { id } = req.user;
-  const { code, page } = req.query;
+  const { code, page, day, month, year } = req.query;
   const imported = users.find(u => u.id === id)?.importCoupon || [];
   let filterImported = imported;
   if (code) {
     filterImported = filterImported.filter(item =>
       item.codeImport.toLowerCase().includes(code.toLowerCase())
     );
+  }
+
+  if(day) {
+    filterImported = filterImported.filter(item => item.date.day === day);
+  }
+
+  if(month) {
+    filterImported = filterImported.filter(item => item.date.month === month);
+  }
+
+  if(year) {
+    filterImported = filterImported.filter(item => item.date.year === year);
   }
 
   const importPerPage = 10;
@@ -1089,7 +1209,11 @@ app.post('/importCoupon/add', authenticateJWT, (req, res) => {
     codeImport:  'IP' + nextId(target?.importCoupon),
     status: status,
     note: note,
-    date: date,
+    date: {
+      day: date.day,
+      month: date.month,
+      year: date.year
+    },
     totalCost: totalCost,
     productsImported: productsImported
   }
@@ -1103,13 +1227,25 @@ app.post('/importCoupon/add', authenticateJWT, (req, res) => {
 //return
 app.get('/returnCoupon', authenticateJWT, (req, res) => {
   const { id } = req.user;
-  const { code, page } = req.query;
+  const { code, page, day, month, year } = req.query;
   const retunted = users.find(u => u.id === id)?.returnsCoupon || [];
   let filterReturn = retunted;
   if (code) {
     filterReturn = filterReturn.filter(item =>
       item.codeReturn.toLowerCase().includes(code.toLowerCase())
     );
+  }
+
+  if(day) {
+    filterReturn = filterReturn.filter(item => item.date.day === day);
+  }
+
+  if(month) {
+    filterReturn = filterReturn.filter(item => item.date.month === month);
+  }
+
+  if(year) {
+    filterReturn = filterReturn.filter(item => item.date.year === year);
   }
 
   const returnPerPage = 10;
@@ -1130,6 +1266,36 @@ app.get('/returnCoupon', authenticateJWT, (req, res) => {
     totalReturn
   })
 });
+
+app.post('/returnCoupon/add', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const target = users.find(item => item.id === id);
+  const {
+    nameUserReturn, status, note, codeImport, 
+    date, totalCost, productsReturned
+  } = req.body;
+  
+  const newReturn = {
+    id: nextId(target?.returnsCoupon),
+    nameUserReturn: nameUserReturn,
+    codeImport:  codeImport,
+    codeReturn: 'RT' + nextId(target?.returnsCoupon),
+    status: status,
+    note: note,
+    date: {
+      day: date.day,
+      month: date.month,
+      year: date.year
+    },
+    totalCost: totalCost,
+    productsReturned: productsReturned
+  }
+
+  target?.returnsCoupon.push(newReturn)
+  // res.status(201).json({ message: 'Imported successfully!' });
+  res.json(newReturn)
+})
+
 
 app.listen(port, () => {
   console.log(`LetDiv app listening on port ${port}`)
