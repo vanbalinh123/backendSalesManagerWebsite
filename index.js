@@ -23,6 +23,7 @@ function nextId(list) {
 const users = [
   {
     id: 1, username: 'Van Ba Linh', email: 'vanbalinh080102@gmail.com', password: 'Linh123',
+    // avatar: 'https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.6435-9/105975959_937510786711867_8217191373792999806_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=zEo-HRihdFkAX9Utw7v&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBQ5Yc3AKEXJTB-ZG8SjnCXiRRoEOIecplAdhLReW9a1Q&oe=650FB050',
     products: [
       { id: 1, name: "Chuot sin", code: 'A1', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
       { id: 2, name: "Ban phim sin", code: 'A2', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
@@ -76,6 +77,129 @@ const users = [
       { id: 6, name: 'Acer' },
       { id: 7, name: 'HP' },
       { id: 8, name: 'Dell' },
+    ],
+    staffs: [
+      {
+        id: 1, nameStaff: 'Tran Van A',
+        codeStaff: 'NV1', phone: '0123456789',
+        sex: 'male',
+        address: '123 Tran Van Ki',
+        position: 'Manager',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 2, nameStaff: 'Tran Van B',
+        codeStaff: 'NV2', phone: '0125436789',
+        sex: 'female',
+        address: '123 Tran Van Ki',
+        position: 'Staff',
+        workingTime: 'Part time',
+        salary: 15000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 3, nameStaff: 'Tran Van C',
+        sex: 'male',
+        codeStaff: 'NV3', phone: '0453456789',
+        address: '123 Tran Van Ki',
+        position: 'Staff',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 4, nameStaff: 'Tran Van D',
+        sex: 'female',
+        codeStaff: 'NV4', phone: '01234548199',
+        address: '123 Tran Van Ki',
+        position: 'Staff',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 5, nameStaff: 'Tran Van E',
+        codeStaff: 'NV5', phone: '0123456789',
+        sex: 'male',
+        address: '123 Tran Van Ki',
+        position: 'Manager',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 6, nameStaff: 'Tran Van F',
+        codeStaff: 'NV6', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'female',
+        position: 'Manager',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 7, nameStaff: 'Tran Van G',
+        codeStaff: 'NV7', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        position: 'Manager',
+        workingTime: 'Full time',
+        sex: 'male',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 8, nameStaff: 'Tran Van H',
+        codeStaff: 'NV8', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'female',
+        position: 'Manager',
+        workingTime: 'Part Time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 9, nameStaff: 'Tran Van M',
+        codeStaff: 'NV9', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'male',
+        position: 'Manager',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 10, nameStaff: 'Tran Van N',
+        codeStaff: 'NV10', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'female',
+        position: 'Staff',
+        workingTime: 'Full time',
+        salary: 30000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 11, nameStaff: 'Tran Van L',
+        codeStaff: 'NV11', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'male',
+        position: 'Staff',
+        workingTime: 'Part time',
+        salary: 15000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+      {
+        id: 12, nameStaff: 'Tran Van J',
+        codeStaff: 'NV12', phone: '0123456789',
+        address: '123 Tran Van Ki',
+        sex: 'female',
+        position: 'Staff',
+        workingTime: 'Part time',
+        salary: 15000,
+        src: 'https://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg',
+      },
+
     ],
     returnsCoupon: [
       {
@@ -402,7 +526,7 @@ const users = [
           },
         ]
       },
-    ], 
+    ],
     importCoupon: [
       {
         id: 1, nameUserImport: 'Linh',
@@ -1167,15 +1291,15 @@ app.get('/importCoupon', authenticateJWT, (req, res) => {
     );
   }
 
-  if(day) {
+  if (day) {
     filterImported = filterImported.filter(item => item.date.day === day);
   }
 
-  if(month) {
+  if (month) {
     filterImported = filterImported.filter(item => item.date.month === month);
   }
 
-  if(year) {
+  if (year) {
     filterImported = filterImported.filter(item => item.date.year === year);
   }
 
@@ -1201,12 +1325,12 @@ app.get('/importCoupon', authenticateJWT, (req, res) => {
 app.post('/importCoupon/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
-  const {nameUserImport, status, note, date, totalCost, productsImported} = req.body;
-  
+  const { nameUserImport, status, note, date, totalCost, productsImported } = req.body;
+
   const newImport = {
     id: nextId(target?.importCoupon),
     nameUserImport: nameUserImport,
-    codeImport:  'IP' + nextId(target?.importCoupon),
+    codeImport: 'IP' + nextId(target?.importCoupon),
     status: status,
     note: note,
     date: {
@@ -1236,15 +1360,15 @@ app.get('/returnCoupon', authenticateJWT, (req, res) => {
     );
   }
 
-  if(day) {
+  if (day) {
     filterReturn = filterReturn.filter(item => item.date.day === day);
   }
 
-  if(month) {
+  if (month) {
     filterReturn = filterReturn.filter(item => item.date.month === month);
   }
 
-  if(year) {
+  if (year) {
     filterReturn = filterReturn.filter(item => item.date.year === year);
   }
 
@@ -1271,14 +1395,14 @@ app.post('/returnCoupon/add', authenticateJWT, (req, res) => {
   const { id } = req.user;
   const target = users.find(item => item.id === id);
   const {
-    nameUserReturn, status, note, codeImport, 
+    nameUserReturn, status, note, codeImport,
     date, totalCost, productsReturned
   } = req.body;
-  
+
   const newReturn = {
     id: nextId(target?.returnsCoupon),
     nameUserReturn: nameUserReturn,
-    codeImport:  codeImport,
+    codeImport: codeImport,
     codeReturn: 'RT' + nextId(target?.returnsCoupon),
     status: status,
     note: note,
@@ -1296,6 +1420,121 @@ app.post('/returnCoupon/add', authenticateJWT, (req, res) => {
   res.json(newReturn)
 })
 
+//staffs
+app.get('/staffs', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const { codeStaff, nameStaff, phone, page } = req.query;
+  const staffLists = users.find(u => u.id === id)?.staffs || [];
+
+  let filterStaffs = staffLists;
+
+  console.log(filterStaffs)
+  console.log(req.query)
+
+  if (codeStaff) {
+    filterStaffs = filterStaffs.filter(item =>
+      item.codeStaff.toLowerCase().includes(codeStaff.toLowerCase())
+    );
+  }
+
+  if (nameStaff) {
+    filterStaffs = filterStaffs.filter(item =>
+      item.nameStaff.toLowerCase().includes(nameStaff.toLowerCase())
+    );
+  }
+
+  if (phone) {
+    filterStaffs = filterStaffs.filter(item =>
+      item.phone.includes(phone)
+    );
+  }
+
+  const StaffsPerPage = 8;
+  const totalStaffs = filterStaffs.length;
+  const currentPage = Number(page) || 0;
+  const totalPages = Math.ceil(totalStaffs / StaffsPerPage)
+
+  const startIndex = currentPage * StaffsPerPage;
+  const endIndex = startIndex + StaffsPerPage;
+
+  const StaffsForPage = filterStaffs.slice(startIndex, endIndex)
+
+  res.json({
+    staffs: StaffsForPage,
+    currentPage,
+    totalPages,
+    StaffsPerPage,
+    totalStaffs
+  })
+})
+
+app.post('/staffs/add', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const target = users.find(item => item.id === id);
+  const {
+    nameStaff, position, workingTime, salary, src, phone, address, sex
+  } = req.body;
+
+  const newStaff = {
+    id: nextId(target?.staffs),
+    codeStaff: 'NV' + nextId(target?.staffs),
+    nameStaff: nameStaff,
+    position: position,
+    workingTime: workingTime,
+    salary: Number(salary),
+    src: src,
+    phone: phone,
+    address: address,
+    sex: sex
+  }
+
+  target?.staffs.push(newStaff)
+  res.json(newStaff)
+})
+
+app.delete('/staffs/delete/:id', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id: idStaff } = req.params;
+  const target = users.find(item => item.id === idUser);
+
+  const deletedIndex = target.staffs.findIndex(item => item.id === Number(idStaff));
+
+  if (deletedIndex !== -1) {
+    const deletedItem = target.staffs.splice(deletedIndex, 1)[0];
+    res.json(deletedItem);
+  } else {
+    res.sendStatus(404);
+  }
+})
+
+app.post('/staffs/update', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { 
+    id, nameStaff, codeStaff, workingTime, position, salary, src, phone, address, sex 
+  } = req.body;
+  const target = users.find(item => item.id === idUser);
+  const staff = target.staffs.find(item => item.id === id);
+  const exist = target.staffs.find(item => item.id === id);
+
+  if (exist === undefined || staff.id === id) {
+    staff.id = id,
+    staff.nameStaff = nameStaff;
+    staff.codeStaff = codeStaff,
+    staff.workingTime = workingTime;
+    staff.position = position,
+    staff.salary = salary;
+    staff.src = src,
+    staff.phone = phone;
+    staff.address = address,
+    staff.sex = sex;
+  } else {
+    return res.status(422).json({ message: 'Error!!! Code of product is existed!' });
+  }
+
+  console.log(req.body)
+
+  res.status(200).json({ message: 'Product updated successfully!' });
+})
 
 app.listen(port, () => {
   console.log(`LetDiv app listening on port ${port}`)
