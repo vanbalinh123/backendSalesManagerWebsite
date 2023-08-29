@@ -78,6 +78,25 @@ const users = [
       { id: 7, name: 'HP' },
       { id: 8, name: 'Dell' },
     ],
+    staffsSalary: [
+        {
+          id: 1, 
+          nameStaff: 'Tran Van A',
+          codeStaff: 'NV1',
+          bonus: 3000, dayOff: 2,
+          deduct: 2000,
+          workingTime: 'Full time',
+          billMonth: '07/2023',
+          date: {
+            day: '01',
+            month: '08',
+            year: '2023'
+          },
+          salary: "30000",
+          total: 31000
+        },
+       
+    ],
     staffs: [
       {
         id: 1, nameStaff: 'Tran Van A',
@@ -1514,9 +1533,8 @@ app.post('/staffs/update', authenticateJWT, (req, res) => {
   } = req.body;
   const target = users.find(item => item.id === idUser);
   const staff = target.staffs.find(item => item.id === id);
-  const exist = target.staffs.find(item => item.id === id);
 
-  if (exist === undefined || staff.id === id) {
+  if (staff.id === id) {
     staff.id = id,
     staff.nameStaff = nameStaff;
     staff.codeStaff = codeStaff,
@@ -1528,13 +1546,114 @@ app.post('/staffs/update', authenticateJWT, (req, res) => {
     staff.address = address,
     staff.sex = sex;
   } else {
-    return res.status(422).json({ message: 'Error!!! Code of product is existed!' });
+    return res.status(422).json({ message: 'Error!!! Code of Staff is existed!' });
+  }
+  res.status(200).json({ message: 'Product updated successfully!' });
+})
+
+//invoice
+app.get('/invoice/staffsSalary', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const { codeStaff, nameStaff, month, year, page } = req.query;
+  const list = users.find(u => u.id === id)?.staffsSalary || [];
+
+  let filterList = list;
+
+  if (codeStaff) {
+    filterList = filterList.filter(item =>
+      item.codeStaff.toLowerCase().includes(codeStaff.toLowerCase())
+    );
   }
 
-  console.log(req.body)
+  if (nameStaff) {
+    filterList = filterList.filter(item =>
+      item.nameStaff.toLowerCase().includes(nameStaff.toLowerCase())
+    );
+  }
+
+  if (month) {
+    filterList = filterList.filter(item =>
+      Number(item.billMonth.substring(0, 2)) === Number(month.padStart(2, '0'))
+    );
+  }
+
+  if (year) {
+    filterList = filterList.filter(item =>
+      Number(item.billMonth.substring(3)) === Number(year)
+    );
+  }
+
+  const StaffsPerPage = 8;
+  const totalStaffs = filterList.length;
+  const currentPage = Number(page) || 0;
+  const totalPages = Math.ceil(totalStaffs / StaffsPerPage)
+
+  const startIndex = currentPage * StaffsPerPage;
+  const endIndex = startIndex + StaffsPerPage;
+
+  const StaffsForPage = filterList.slice(startIndex, endIndex)
+
+  res.json({
+    staffs: StaffsForPage,
+    currentPage,
+    totalPages,
+    StaffsPerPage,
+    totalStaffs
+  })
+})
+
+app.post('/invoice/staffsSalary/add', authenticateJWT, (req, res) => {
+  const { id } = req.user;
+  const target = users.find(item => item.id === id);
+  const {
+    nameStaff, codeStaff, bonus, dayOff, deduct, billMonth, date, salary,total, workingTime
+  } = req.body;
+
+  const newPayroll = {
+    id: nextId(target?.staffsSalary),
+    codeStaff: codeStaff,
+    nameStaff: nameStaff,
+    bonus: bonus,
+    dayOff: dayOff,
+    deduct: deduct,
+    billMonth: billMonth,
+    date: date,
+    salary: salary,
+    total: total,
+    workingTime: workingTime
+  }
+
+  target?.staffsSalary.push(newPayroll)
+  res.json(newPayroll)
+})
+
+app.post('/invoice/staffsSalary/update', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { 
+    id, nameStaff, codeStaff, workingTime, bonus, dayOff, deduct, billMonth, date, salary, total 
+  } = req.body;
+  const target = users.find(item => item.id === idUser);
+  const staffPayrollUpdate = target.staffsSalary.find(item => item.id === id);
+
+  if (staffPayrollUpdate.id === id) {
+    staffPayrollUpdate.id = id,
+    staffPayrollUpdate.nameStaff = nameStaff;
+    staffPayrollUpdate.codeStaff = codeStaff,
+    staffPayrollUpdate.workingTime = workingTime;
+    staffPayrollUpdate.bonus = bonus,
+    staffPayrollUpdate.dayOff = dayOff;
+    staffPayrollUpdate.deduct = deduct,
+    staffPayrollUpdate.billMonth = billMonth;
+    staffPayrollUpdate.date = date,
+    staffPayrollUpdate.salary = salary;
+    staffPayrollUpdate.total = total;
+  } else {
+    return res.status(422).json({ message: 'Error!!! Code of Staff is existed!' });
+  }
 
   res.status(200).json({ message: 'Product updated successfully!' });
 })
+
 
 app.listen(port, () => {
   console.log(`LetDiv app listening on port ${port}`)
