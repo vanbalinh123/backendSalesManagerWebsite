@@ -9,21 +9,10 @@ const port = 3100;
 app.use(cors());
 app.use(express.json());
 
-function nextId(list) {
-  // const maxId = list[list.length - 1].id;
-  // return maxId + 1
-  if (list.length === 0) {
-    return 1;
-  } else {
-    const maxId = list[list.length - 1].id;
-    return maxId + 1;
-  }
-}
-
 const users = [
   {
     id: 1, username: 'Van Ba Linh', email: 'vanbalinh080102@gmail.com', password: 'Linh123',
-    // avatar: 'https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.6435-9/105975959_937510786711867_8217191373792999806_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=zEo-HRihdFkAX9Utw7v&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBQ5Yc3AKEXJTB-ZG8SjnCXiRRoEOIecplAdhLReW9a1Q&oe=650FB050',
+    avatar: 'https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.6435-9/105975959_937510786711867_8217191373792999806_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=zEo-HRihdFkAX9Utw7v&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBQ5Yc3AKEXJTB-ZG8SjnCXiRRoEOIecplAdhLReW9a1Q&oe=650FB050',
     products: [
       { id: 1, name: "Chuot sin", code: 'A1', productGroups: "Mouse", trademark: "Apple", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://cdn.tgdd.vn/Products/Images/86/233777/chuot-khong-day-rapoo-m10-plus-trang-1-org.jpg" },
       { id: 2, name: "Ban phim sin", code: 'A2', productGroups: "Keyboard", trademark: "Samsung", quantity: "20", describe: "Sin", cost: "20000", price: "50000", img: "https://vcdn1-sohoa.vnecdn.net/2020/06/10/leopold-fc980c-1591758531.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=UPQyQReNkm3kBUV89A_t8A" },
@@ -1040,6 +1029,17 @@ const users = [
   },
 ]
 
+function nextId(list) {
+  // const maxId = list[list.length - 1].id;
+  // return maxId + 1
+  if (list.length === 0) {
+    return 1;
+  } else {
+    const maxId = list[list.length - 1].id;
+    return maxId + 1;
+  }
+}
+
 app.get('/', (req, res) => {
   res.send('LetDiv');
 });
@@ -1654,6 +1654,20 @@ app.post('/invoice/staffsSalary/update', authenticateJWT, (req, res) => {
   res.status(200).json({ message: 'Product updated successfully!' });
 })
 
+app.delete('/invoice/delete/:id', authenticateJWT, (req, res) => {
+  const { id: idUser } = req.user;
+  const { id: idInvoice } = req.params;
+  const target = users.find(item => item.id === idUser);
+
+  const deletedIndex = target.staffsSalary.findIndex(item => item.id === Number(idInvoice));
+
+  if (deletedIndex !== -1) {
+    const deletedItem = target.staffsSalary.splice(deletedIndex, 1)[0];
+    res.json(deletedItem);
+  } else {
+    res.sendStatus(404);
+  }
+})
 
 app.listen(port, () => {
   console.log(`LetDiv app listening on port ${port}`)
