@@ -9,31 +9,31 @@ const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 150,
-    minlength: 6,
+    minlength: 3,
     require: true
   },
   code: {
     type: String,
     require: true
   },
-  // productGroups: {
-  //   type: mongoose.Schema.ObjectId,
-  //   ref: 'ProductGroup',
-  //   required: true
-  // },
-  // trademark: {
-  //   type: mongoose.Schema.ObjectId,
-  //   ref: 'Trademark',
-  //   required: true
-  // },
-  productGroups: {
-    type: String,
-    require: true,
+  productGroup: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'ProductGroup',
+    required: true
   },
   trademark: {
-    type: String,
-    require: true,
+    type: mongoose.Schema.ObjectId,
+    ref: 'Trademark',
+    required: true
   },
+  // productGroups: {
+  //   type: String,
+  //   require: true,
+  // },
+  // trademark: {
+  //   type: String,
+  //   require: true,
+  // },
   quantity: {
     type: Number,
     min: 0,
@@ -44,11 +44,13 @@ const ProductSchema = new mongoose.Schema({
     require: true,
   },
   cost: {
-    type: String,
+    type: Number,
+    min: 0,
     require: true
   },
   price: {
-    type: String,
+    type: Number,
+    min: 0,
     require: true
   },
   img: {

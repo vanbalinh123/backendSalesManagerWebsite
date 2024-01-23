@@ -11,12 +11,10 @@ exports.getTrademarks = catching(async (req, res, next) => {
   }
 
   const { name } = req.query;
-  console.log(name)
 
   try {
     const userId = req.user._id;
     const userTrademark = await Trademark.find({ userId: userId });
-    console.log(userTrademark)
     let filteredTrademark = userTrademark;
 
     if (name) {
@@ -24,8 +22,6 @@ exports.getTrademarks = catching(async (req, res, next) => {
         group.name.toLowerCase().includes(name.toLowerCase())
       );
     }
-
-    console.log(filteredTrademark)
 
     res.json(filteredTrademark);
   } catch (error) {

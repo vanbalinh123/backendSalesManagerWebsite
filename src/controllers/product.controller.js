@@ -12,51 +12,58 @@ exports.getProducts = catching(async (req, res, next) => {
   }
 
   const userId = req.user._id;
-  const { name, code, productGroups, trademark, page } = req.query;
+  const { name, code, page, productGroups, trademark } = req.query;
 
-  const productOfUser = await Product.find({
+  let query = { userId: userId };
+
+  if (name) {
+    query.name = { $regex: new RegExp(name, 'i') };
+  }
+
+  if (code) {
+    query.code = { $regex: new RegExp(code, 'i') };
+  }
+
+  const productGroupFind = await ProductGroup.findOne({
+    name: productGroups,
     userId: userId,
   });
 
-  let filteredProducts = productOfUser;
-  if (name || code) {
-    filteredProducts = filteredProducts.filter(
-      (item) =>
-        (name && item.name.toLowerCase().includes(name.toLowerCase())) ||
-        (code && item.code.toLowerCase().includes(code.toLowerCase()))
-    );
-  }
+  const trademarkFind = await Trademark.findOne({
+    name: trademark,
+    userId: userId,
+  });
 
   if (productGroups) {
-    filteredProducts = filteredProducts.filter(
-      (item) => item.productGroups.toLowerCase() === productGroups.toLowerCase()
-    );
+    query.productGroup = productGroupFind; 
   }
 
   if (trademark) {
-    filteredProducts = filteredProducts.filter(
-      (item) => item.trademark.toLowerCase() === trademark.toLowerCase()
-    );
+    query.trademark = trademarkFind; 
   }
 
   const productsPerPage = 10;
-  const totalProducts = filteredProducts.length;
   const currentPage = Number(page) || 0;
+
+  const products = await Product.find(query)
+    .populate('productGroup', 'name')
+    .populate('trademark', 'name')
+    .limit(productsPerPage)
+    .skip(currentPage * productsPerPage)
+    .exec();
+
+  const totalProducts = await Product.countDocuments(query);
   const totalPages = Math.ceil(totalProducts / productsPerPage);
-
-  const startIndex = currentPage * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
-
-  const productsForPage = filteredProducts.slice(startIndex, endIndex);
 
   res.json({
     currentPage,
     totalPages,
     productsPerPage,
     totalProducts,
-    products: productsForPage,
+    products,
   });
 });
+
 
 exports.addProduct = catching(async (req, res, next) => {
   const errors = validationResult(req);
@@ -68,8 +75,8 @@ exports.addProduct = catching(async (req, res, next) => {
   const {
     name,
     code,
-    productGroups: nameProductGroup,
-    trademark: nameTrademark,
+    productGroups: idProductGroup,
+    trademark: idTrademark,
     quantity,
     describe,
     cost,
@@ -77,19 +84,22 @@ exports.addProduct = catching(async (req, res, next) => {
     img,
   } = req.body;
 
-  const productOfUser = await Product.find({
+  const productOfUser = await Product.findOne({
     userId: userId,
+    code: code
   });
 
-  const exist = productOfUser.find((item) => item.code === code);
+  console.log(productOfUser, 'ccccc')
 
-  if (exist === undefined) {
+  // const exist = productOfUser.find((item) => item.code === code);
+
+  if (!productOfUser) {
     const productGroup = await ProductGroup.findOne({
-      name: nameProductGroup,
+      _id: idProductGroup,
       userId: userId,
     });
     const trademark = await Trademark.findOne({
-      name: nameTrademark,
+      _id: idTrademark,
       userId: userId,
     });
 
@@ -100,23 +110,28 @@ exports.addProduct = catching(async (req, res, next) => {
       userId,
       name,
       code,
-      productGroups: productGroup.name,
-      trademark: trademark.name,
+      productGroup: idProductGroup,
+      trademark: idTrademark,
       quantity,
       describe,
       cost,
       price,
       img,
     });
+
+    const newRes = products;
+    newRes.productGroup = productGroup;
+    newRes.trademark = trademark;
+
     res.status(201).json({
       status: "success",
       data: {
-        products,
+        products: newRes,
       },
     });
   } else {
     res.status(422).json({ message: "Error!!! Your Product is existed!" });
-    return next(new AppError("Your Product is existed!", 422, errors.array()));
+    // return next(new AppError("Your Product is existed!", 422, errors.array()));
   }
 });
 
@@ -131,8 +146,8 @@ exports.updateProduct = catching(async (req, res, next) => {
   const {
     name,
     code,
-    productGroups,
-    trademark,
+    productGroups: idProductGroup,
+    trademark: idTrademark,
     quantity,
     describe,
     cost,
@@ -154,11 +169,11 @@ exports.updateProduct = catching(async (req, res, next) => {
   }
 
   const productGroupFind = await ProductGroup.findOne({
-    name: productGroups,
+    _id: idProductGroup,
     userId: userId,
   });
   const trademarkFind = await Trademark.findOne({
-    name: trademark,
+    _id: idTrademark,
     userId: userId,
   });
 
@@ -176,8 +191,8 @@ exports.updateProduct = catching(async (req, res, next) => {
     {
       name: name,
       code: code,
-      productGroups: productGroups,
-      trademark: trademark,
+      productGroup: productGroupFind._id,
+      trademark: trademarkFind._id,
       quantity: quantity,
       describe: describe,
       cost: cost,
@@ -190,12 +205,26 @@ exports.updateProduct = catching(async (req, res, next) => {
   if (!productOfUser) {
     next(new AppError("Not Found!!!", 404));
     return;
-  }
+  };
+
+  const productGroup = await ProductGroup.findOne({
+    _id: idProductGroup,
+    userId: userId,
+  });
+  const trademark = await Trademark.findOne({
+    _id: idTrademark,
+    userId: userId,
+  });
+
+  const newRes = productOfUser;
+  newRes.productGroup = productGroup;
+  newRes.trademark = trademark;
+
 
   res.status(200).json({
     status: "success",
     data: {
-      product: productOfUser,
+      product: newRes,
     },
   });
 });
