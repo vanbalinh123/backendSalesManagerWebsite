@@ -26,14 +26,6 @@ const ProductSchema = new mongoose.Schema({
     ref: 'Trademark',
     required: true
   },
-  // productGroups: {
-  //   type: String,
-  //   require: true,
-  // },
-  // trademark: {
-  //   type: String,
-  //   require: true,
-  // },
   quantity: {
     type: Number,
     min: 0,
@@ -54,8 +46,14 @@ const ProductSchema = new mongoose.Schema({
     require: true
   },
   img: {
-    type: String,
-    require: true
+    public_id: {
+      type: String,
+      require: true
+    },
+    url: {
+      type: String,
+      require: true
+    },
   }
 });
 

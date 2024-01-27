@@ -23,6 +23,7 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(xss());
 
+
 app.use('/api/auth', authRouter);
 app.use('/api/userLogin', userLoginRouter);
 app.use('/api/productGroups', productGroupRouter);

@@ -5,6 +5,10 @@ const productController = require("../controllers/product.controller");
 const authenticateJWT = require('../middlewares/authenticateJWT');
 
 router.use(authenticateJWT);
+const multer = require('multer');
+
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage });
 
 router 
   .route('/')

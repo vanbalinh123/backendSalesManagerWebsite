@@ -4,6 +4,11 @@ const Trademark = require("../models/trademark.model");
 const { validationResult } = require("express-validator");
 const catching = require("../helpers/catching");
 const AppError = require("../helpers/AppError");
+const cloudinary = require("../configs/cloudinary");
+// const multer = require('multer');
+
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage });
 
 exports.getProducts = catching(async (req, res, next) => {
   const errors = validationResult(req);
@@ -65,7 +70,7 @@ exports.getProducts = catching(async (req, res, next) => {
 });
 
 
-exports.addProduct = catching(async (req, res, next) => {
+exports.addProduct = (catching, async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(new AppError("Data is not valid", 422, errors.array()));
@@ -84,14 +89,13 @@ exports.addProduct = catching(async (req, res, next) => {
     img,
   } = req.body;
 
+  console.log('this is req.body', req.body)
+
+
   const productOfUser = await Product.findOne({
     userId: userId,
     code: code
   });
-
-  console.log(productOfUser, 'ccccc')
-
-  // const exist = productOfUser.find((item) => item.code === code);
 
   if (!productOfUser) {
     const productGroup = await ProductGroup.findOne({
@@ -106,6 +110,12 @@ exports.addProduct = catching(async (req, res, next) => {
     if (!productGroup || !trademark) {
       return next(new AppError("ProductGroup or Trademark not found", 404));
     }
+
+    const result = await cloudinary.uploader.upload(img, {
+      folder: 'products'
+    })
+
+
     const products = await Product.create({
       userId,
       name,
@@ -116,7 +126,10 @@ exports.addProduct = catching(async (req, res, next) => {
       describe,
       cost,
       price,
-      img,
+      img: {
+        public_id: result.public_id,
+        url: result.secure_url
+      },
     });
 
     const newRes = products;
