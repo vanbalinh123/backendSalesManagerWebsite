@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require("xss-clean");
-
+// const path = require('path');
 const authRouter = require("./src/routes/auth.route");
 const userLoginRouter = require("./src/routes/userLogin.route");
 const productGroupRouter = require("./src/routes/productGroup.route");
@@ -13,7 +13,8 @@ const productRouter = require("./src/routes/product.route")
 const AppError = require("./src/helpers/AppError");
 const app = express();
 app.use(cors());
-
+app.use(express.static(`${__dirname}/public`));
+// app.use('/public', express.static(path.join(__dirname, 'public')));
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }

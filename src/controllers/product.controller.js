@@ -4,11 +4,57 @@ const Trademark = require("../models/trademark.model");
 const { validationResult } = require("express-validator");
 const catching = require("../helpers/catching");
 const AppError = require("../helpers/AppError");
+const { v4 } = require('uuid');
+const sharp = require('sharp');
 const cloudinary = require("../configs/cloudinary");
-// const multer = require('multer');
+const multer = require('multer');
 
-// const storage = multer.memoryStorage();
-// const upload = multer({ storage });
+const multerStorage = multer.diskStorage({
+  destination: (req,file,cb) => {
+      cb(null, 'public/img');
+  },
+  filename: (req,file,cb) => {
+      const ext = file.mimetype.split('/')[1];
+      cb(null,`product-${req.user._id}-${v4()}.${ext}`);
+  }
+});
+
+const multerFilter = (req,file,cb) => {
+  const {mimetype} = file;
+  if(mimetype.startsWith('image')) {
+      return cb(null,true);
+  }
+  cb(new AppError('Not an image!!!',422),false)
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadImage = upload.fields([
+  {name: 'img', maxCount: 1},
+]);
+
+exports.resizeImage = catching(async(req,res,next) => {
+  const {
+      files,
+      body
+  } = req;
+  if(!files.img) {
+      return next();
+  }
+  if(files.img) {
+      const image = files.img[0];
+      console.log(image)
+      const resizeName = `resize-${image.filename}`;
+      await sharp(image.path)
+          .resize(500)
+          .toFile(`public/img/${resizeName}`);
+      body.img = resizeName;
+  }
+  next();
+});
 
 exports.getProducts = catching(async (req, res, next) => {
   const errors = validationResult(req);
@@ -70,7 +116,7 @@ exports.getProducts = catching(async (req, res, next) => {
 });
 
 
-exports.addProduct = (catching, async (req, res, next) => {
+exports.addProduct = catching(async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(new AppError("Data is not valid", 422, errors.array()));
@@ -88,9 +134,6 @@ exports.addProduct = (catching, async (req, res, next) => {
     price,
     img,
   } = req.body;
-
-  console.log('this is req.body', req.body)
-
 
   const productOfUser = await Product.findOne({
     userId: userId,
@@ -111,9 +154,9 @@ exports.addProduct = (catching, async (req, res, next) => {
       return next(new AppError("ProductGroup or Trademark not found", 404));
     }
 
-    const result = await cloudinary.uploader.upload(img, {
-      folder: 'products'
-    })
+    // const result = await cloudinary.uploader.upload(img, {
+    //   folder: 'products'
+    // })
 
 
     const products = await Product.create({
@@ -126,10 +169,11 @@ exports.addProduct = (catching, async (req, res, next) => {
       describe,
       cost,
       price,
-      img: {
-        public_id: result.public_id,
-        url: result.secure_url
-      },
+      // img: {
+      //   public_id: result.public_id,
+      //   url: result.secure_url
+      // },
+      img
     });
 
     const newRes = products;
