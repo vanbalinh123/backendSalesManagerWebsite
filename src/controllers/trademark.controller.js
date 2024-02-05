@@ -104,14 +104,15 @@ exports.deleteTrademark = catching(async (req, res, next) => {
   const { id } = req.params;
   const userId = req.user._id;
   const trademark = await Trademark.findById(id);
+
   if (!trademark) {
     return res.status(404).json({ message: "Trademark not found!" });
   }
 
-  await Product.updateMany(
-    { userId: userId, trademark: trademark.name },
-    { $set: { trademark: "!!!" } }
-  );
+//  await Product.updateMany(
+//     { userId: userId, trademark: trademark._id },
+//     { $set: { trademark: "!!!" } }
+//   );
 
 
   await Trademark.findByIdAndDelete(id);

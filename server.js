@@ -5,7 +5,8 @@ dotenv.config();
 const app = require('./app');
 
 mongoose
-    .connect(process.env.DATABASE)
+    // .connect(process.env.DATABASE)
+    .connect(process.env.URL)
     .then(() => console.log('DB connection is successfully!'))
     .catch(error => console.log(error))
 

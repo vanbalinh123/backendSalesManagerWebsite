@@ -108,10 +108,10 @@ exports.deleteProductGroup = catching(async (req, res, next) => {
     return res.status(404).json({ message: "Product Group not found!" });
   }
 
-  await Product.updateMany(
-    { userId: userId, productGroups: productGroup.name },
-    { $set: { productGroups: "!!!" } }
-  );
+  // await Product.updateMany(
+  //   { userId: userId, productGroup: productGroup._id },
+  //   { $set: { productGroup: "!!!" } }
+  // );
 
   await ProductGroup.findByIdAndDelete(id);
   res
