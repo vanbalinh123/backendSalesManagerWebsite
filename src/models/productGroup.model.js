@@ -9,7 +9,12 @@ const productGroupSchema = new mongoose.Schema({
   name: {
     type: String,
     require: true
-  }
+  },
+  quantity: {
+    type: Number,
+    min: 0,
+    require: true
+  },
 });
 
 const ProductGroup = mongoose.model('ProductGroup', productGroupSchema);

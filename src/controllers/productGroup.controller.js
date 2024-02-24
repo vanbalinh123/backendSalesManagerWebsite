@@ -49,6 +49,7 @@ exports.addProductGroup = catching(async (req, res, next) => {
     const productGroup = await ProductGroup.create({
       userId,
       name: nameProductGroup,
+      quantity: 0
     });
     res.status(201).json({
       status: "success",

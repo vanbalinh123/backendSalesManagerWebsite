@@ -49,6 +49,7 @@ exports.addTrademark = catching(async (req, res, next) => {
     const trademark = await Trademark.create({
       userId,
       name: name,
+      quantity: 0
     });
     res.status(201).json({
       status: "success",

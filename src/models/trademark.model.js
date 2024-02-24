@@ -9,7 +9,12 @@ const trademarkSchema = new mongoose.Schema({
   name: {
     type: String,
     require: true
-  }
+  },
+  quantity: {
+    type: Number,
+    min: 0,
+    require: true
+  },
 });
 
 const Trademark = mongoose.model('Trademark', trademarkSchema);
