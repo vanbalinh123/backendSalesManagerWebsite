@@ -46,7 +46,6 @@ exports.resizeImage = catching(async(req,res,next) => {
   }
   if(files.img) {
       const image = files.img[0];
-      console.log(image)
       const resizeName = `resize-${image.filename}`;
       await sharp(image.path)
           .resize(500)

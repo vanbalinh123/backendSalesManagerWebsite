@@ -9,7 +9,9 @@ const authRouter = require("./src/routes/auth.route");
 const userLoginRouter = require("./src/routes/userLogin.route");
 const productGroupRouter = require("./src/routes/productGroup.route");
 const trademarkRouter = require("./src/routes/trademark.route");
-const productRouter = require("./src/routes/product.route")
+const productRouter = require("./src/routes/product.route");
+const staffRouter = require("./src/routes/staff.route");
+
 const AppError = require("./src/helpers/AppError");
 const app = express();
 app.use(cors());
@@ -30,6 +32,7 @@ app.use('/api/userLogin', userLoginRouter);
 app.use('/api/productGroups', productGroupRouter);
 app.use('/api/trademarks', trademarkRouter);
 app.use('/api/products', productRouter);
+app.use('/api/staffs', staffRouter)
 
 app.all('*',(req,res,next) => {
   next(new AppError('Url Not Found!!!', 404));
