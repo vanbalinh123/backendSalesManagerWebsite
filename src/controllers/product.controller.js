@@ -216,8 +216,6 @@ exports.updateProduct = catching(async (req, res, next) => {
     code: code,
   });
 
-  console.log('dasfyjkasgfas', img)
-
   if (existingProduct) {
     res
       .status(422)

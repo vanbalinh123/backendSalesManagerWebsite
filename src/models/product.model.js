@@ -10,7 +10,7 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     maxlength: 150,
     minlength: 3,
-    require: true
+    required: true
   },
   code: {
     type: String,
@@ -29,21 +29,21 @@ const ProductSchema = new mongoose.Schema({
   quantity: {
     type: Number,
     min: 0,
-    require: true
+    required: true
   },
   describe: {
     type: String,
-    require: true,
+    required: true,
   },
   cost: {
     type: Number,
     min: 0,
-    require: true
+    required: true
   },
   price: {
     type: Number,
     min: 0,
-    require: true
+    required: true
   },
   // img: {
   //   public_id: {
@@ -57,7 +57,7 @@ const ProductSchema = new mongoose.Schema({
   // }
   img: {
     type: String,
-    require: true,
+    required: true,
   }
 });
 
