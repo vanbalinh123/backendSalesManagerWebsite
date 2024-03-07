@@ -49,9 +49,9 @@ exports.getImports = catching(async (req, res, next) => {
   }
 
   if(!dateBefore && dateAfter) {
-    query.day = dateBeforeSearch.day,
-    query.month = dateBeforeSearch.month,
-    query.year = dateBeforeSearch.year
+    query.day = dateAfterSearch.day,
+    query.month = dateAfterSearch.month,
+    query.year = dateAfterSearch.year
   }
 
   const importPerPage = 10;
