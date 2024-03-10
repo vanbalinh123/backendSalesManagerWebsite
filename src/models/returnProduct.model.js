@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ImportSchema = new mongoose.Schema({
+const ReturnSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
@@ -34,7 +34,7 @@ const ImportSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  productsImported: [
+  productsReturned: [
     {
       code: {
         type: String,
@@ -60,30 +60,30 @@ const ImportSchema = new mongoose.Schema({
         {
           _id: {
             type: String,
-          required: true,
+            required: true,
           },
           name: {
             type: String,
             required: true,
-          }
-        }
+          },
+        },
       ],
       trademark: [
         {
           _id: {
             type: String,
-          required: true,
+            required: true,
           },
           name: {
             type: String,
             required: true,
-          }
-        }
+          },
+        },
       ],
     },
-  ]
+  ],
 });
 
-const Import = mongoose.model('Import', ImportSchema);
+const Return = mongoose.model("Return", ReturnSchema);
 
-module.exports = Import;
+module.exports = Return;

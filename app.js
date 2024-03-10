@@ -12,6 +12,7 @@ const trademarkRouter = require("./src/routes/trademark.route");
 const productRouter = require("./src/routes/product.route");
 const staffRouter = require("./src/routes/staff.route");
 const importRouter = require("./src/routes/importProduct.route");
+const returnRouter = require("./src/routes/returnProduct.route");
 
 const AppError = require("./src/helpers/AppError");
 const app = express();
@@ -35,6 +36,7 @@ app.use('/api/trademarks', trademarkRouter);
 app.use('/api/products', productRouter);
 app.use('/api/staffs', staffRouter);
 app.use('/api/import', importRouter);
+app.use('/api/return', returnRouter);
 
 app.all('*',(req,res,next) => {
   next(new AppError('Url Not Found!!!', 404));

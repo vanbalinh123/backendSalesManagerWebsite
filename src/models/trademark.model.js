@@ -8,12 +8,12 @@ const trademarkSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    require: true
+    required: true
   },
   quantity: {
     type: Number,
     min: 0,
-    require: true
+    required: true
   },
 });
 

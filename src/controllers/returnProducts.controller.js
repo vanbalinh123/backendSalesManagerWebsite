@@ -1,4 +1,4 @@
-const Import = require("../models/importProduct.model");
+const Return = require("../models/returnProduct.model");
 const Product = require("../models/product.model");
 const ProductGroup = require("../models/productGroup.model");
 const Trademark = require("../models/trademark.model");
@@ -6,7 +6,7 @@ const { validationResult } = require("express-validator");
 const catching = require("../helpers/catching");
 const AppError = require("../helpers/AppError");
 
-exports.getImports = catching(async (req, res, next) => {
+exports.getReturns = catching(async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(new AppError("Data is not valid", 422, errors.array()));
@@ -54,44 +54,42 @@ exports.getImports = catching(async (req, res, next) => {
     query.year = dateAfterSearch.year
   }
 
-  const importPerPage = 10;
+  const returnPerPage = 10;
   const currentPage = Number(page) || 0;
-  const totalImported = await Import.countDocuments(query);
-  const totalPages = Math.ceil(totalImported / importPerPage);
+  const totalReturned = await Return.countDocuments(query);
+  const totalPages = Math.ceil(totalReturned / returnPerPage);
 
-  const imported = await Import.find(query)
-    .limit(importPerPage)
-    .skip(currentPage * importPerPage)
+  const returned = await Return.find(query)
+    .limit(returnPerPage)
+    .skip(currentPage * returnPerPage)
     .exec();
 
   res.json({
-    import: imported,
+    return: returned,
     currentPage,
     totalPages,
-    importPerPage,
-    totalImported,
+    returnPerPage,
+    totalReturned,
   });
 });
 
-exports.addImport = catching(async (req, res, next) => {
+exports.addReturn = catching(async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(new AppError("Data is not valid", 422, errors.array()));
   }
 
   const userId = req.user._id;
-  const { status, code, note, day, month, year, totalCost, productsImported } =
+  const { status, code, note, day, month, year, totalCost, productsReturned } =
     req.body;
 
-  const importOfUser = await Import.findOne({
+  const returnOfUser = await Return.findOne({
     userId: userId,
     code: code,
   });
 
-  console.log(productsImported)
-
-  if (!importOfUser) {
-    const newImport = await Import.create({
+  if (!returnOfUser) {
+    const newReturn = await Return.create({
       userId: userId,
       status: status,
       code: code,
@@ -100,37 +98,40 @@ exports.addImport = catching(async (req, res, next) => {
       month: month,
       year: year,
       totalCost: totalCost,
-      productsImported: productsImported,
+      productsReturned: productsReturned,
     });
 
-    await Promise.all(productsImported.map(async (item) => {
+    productsReturned.map(item => {
+      console.log(item)
+    })
+
+    await Promise.all(productsReturned.map(async (item) => {
       await Promise.all([
         Product.findOneAndUpdate(
           { userId: userId, code: item.code },
-          { $inc: { quantity: item.quantity } },
+          { $inc: { quantity: - item.quantity } },
           { new: true }
         ),
         ProductGroup.findOneAndUpdate(
-          { userId: userId, _id: item.productGroup._id },
-          { $inc: { quantity: item.quantity } },
+          { userId: userId, _id: item.productGroup[0]._id },
+          { $inc: { quantity: - Number(item.quantity) } },
           { new: true }
         ),
         Trademark.findOneAndUpdate(
-          { userId: userId, _id: item.trademark._id },
-          { $inc: { quantity: item.quantity } },
+          { userId: userId, _id: item.trademark[0]._id },
+          { $inc: { quantity: - Number(item.quantity) } },
           { new: true }
         )
       ]);
     }));
-    
- 
+
     res.status(201).json({
       status: "success",
       data: {
-        imported: newImport,
+        returned: newReturn,
       },
     });
   } else {
-    res.status(422).json({ message: "Error!!! Your Import Code is existed!" });
+    res.status(422).json({ message: "Error!!! Your Return Code is existed!" });
   }
 });
