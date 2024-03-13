@@ -88,7 +88,9 @@ exports.addImport = catching(async (req, res, next) => {
     code: code,
   });
 
-  console.log(productsImported)
+  productsImported.forEach((item) => {
+    item.currentQuantity = item.quantity;
+  });
 
   if (!importOfUser) {
     const newImport = await Import.create({
@@ -119,7 +121,7 @@ exports.addImport = catching(async (req, res, next) => {
           { userId: userId, _id: item.trademark._id },
           { $inc: { quantity: item.quantity } },
           { new: true }
-        )
+        ),
       ]);
     }));
     

@@ -1,4 +1,5 @@
 const Return = require("../models/returnProduct.model");
+const Import = require("../models/importProduct.model");
 const Product = require("../models/product.model");
 const ProductGroup = require("../models/productGroup.model");
 const Trademark = require("../models/trademark.model");
@@ -36,22 +37,28 @@ exports.getReturns = catching(async (req, res, next) => {
     query.code = { $regex: new RegExp(code, "i") };
   }
 
-  if(dateBefore && dateAfter) {
-    query.day ={ $gte: dateBeforeSearch.day, $lte: dateAfterSearch.day }
-    query.month = { $gte: dateBeforeSearch.month, $lte: dateAfterSearch.month },
-    query.year = { $gte: dateBeforeSearch.year, $lte: dateAfterSearch.year }
+  if (dateBefore && dateAfter) {
+    query.day = { $gte: dateBeforeSearch.day, $lte: dateAfterSearch.day };
+    (query.month = {
+      $gte: dateBeforeSearch.month,
+      $lte: dateAfterSearch.month,
+    }),
+      (query.year = {
+        $gte: dateBeforeSearch.year,
+        $lte: dateAfterSearch.year,
+      });
   }
 
-  if(dateBefore && !dateAfter) {
-    query.day = dateBeforeSearch.day,
-    query.month = dateBeforeSearch.month,
-    query.year = dateBeforeSearch.year
+  if (dateBefore && !dateAfter) {
+    (query.day = dateBeforeSearch.day),
+      (query.month = dateBeforeSearch.month),
+      (query.year = dateBeforeSearch.year);
   }
 
-  if(!dateBefore && dateAfter) {
-    query.day = dateAfterSearch.day,
-    query.month = dateAfterSearch.month,
-    query.year = dateAfterSearch.year
+  if (!dateBefore && dateAfter) {
+    (query.day = dateAfterSearch.day),
+      (query.month = dateAfterSearch.month),
+      (query.year = dateAfterSearch.year);
   }
 
   const returnPerPage = 10;
@@ -73,6 +80,108 @@ exports.getReturns = catching(async (req, res, next) => {
   });
 });
 
+// exports.addReturn = catching(async (req, res, next) => {
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     return next(new AppError("Data is not valid", 422, errors.array()));
+//   }
+
+//   const userId = req.user._id;
+//   const {
+//     codeImported,
+//     status,
+//     code,
+//     note,
+//     day,
+//     month,
+//     year,
+//     totalCost,
+//     productsReturned,
+//   } = req.body;
+
+//   const returnOfUser = await Return.findOne({
+//     userId: userId,
+//     code: code,
+//   });
+
+
+//   const importedCoupon = await Import.findOne({
+//      userId: userId, code: codeImported 
+//   })
+
+//   // await Promise.all(
+//     productsReturned.map(async (returnedItem) => {
+//       const importedItem = importedCoupon.productsImported.find(
+//         (item) => item.code === returnedItem.code
+//       );
+  
+//       if (importedItem) {
+//         if(importedItem.currentQuantity < returnedItem.quantity) {
+//           res.status(400).json({
+//             status: "fail",
+//             data: {
+//               message: 'Fail roofi'
+//             }
+//             })
+//         } else {
+//           importedItem.currentQuantity -= returnedItem.quantity;
+//         }
+        
+//       }
+//     })
+//   // );
+  
+//   await importedCoupon.save();
+  
+
+//   if (!returnOfUser) {
+//     const newReturn = await Return.create({
+//       userId: userId,
+//       status: status,
+//       code: code,
+//       note: note,
+//       day: day,
+//       month: month,
+//       year: year,
+//       totalCost: totalCost,
+//       productsReturned: productsReturned,
+//     });
+
+//     await Promise.all(
+//       productsReturned.map(async (item) => {
+//         await Promise.all([
+//           Product.findOneAndUpdate(
+//             { userId: userId, code: item.code },
+//             { $inc: { quantity: -item.quantity } },
+//             { new: true }
+//           ),
+//           ProductGroup.findOneAndUpdate(
+//             { userId: userId, _id: item.productGroup[0]._id },
+//             { $inc: { quantity: -Number(item.quantity) } },
+//             { new: true }
+//           ),
+//           Trademark.findOneAndUpdate(
+//             { userId: userId, _id: item.trademark[0]._id },
+//             { $inc: { quantity: -Number(item.quantity) } },
+//             { new: true }
+//           ),
+//         ]);
+  
+//       })
+//     );
+    
+
+//     res.status(201).json({
+//       status: "success",
+//       data: {
+//         returned: newReturn,
+//       },
+//     });
+//   } else {
+//     res.status(422).json({ message: "Error!!! Your Return Code is existed!" });
+//   }
+// });
+
 exports.addReturn = catching(async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -80,13 +189,54 @@ exports.addReturn = catching(async (req, res, next) => {
   }
 
   const userId = req.user._id;
-  const { status, code, note, day, month, year, totalCost, productsReturned } =
-    req.body;
+  const {
+    codeImported,
+    status,
+    code,
+    note,
+    day,
+    month,
+    year,
+    totalCost,
+    productsReturned,
+  } = req.body;
 
   const returnOfUser = await Return.findOne({
     userId: userId,
     code: code,
   });
+
+  const importedCoupon = await Import.findOne({
+    userId: userId,
+    code: codeImported,
+  });
+
+  let hasError = false;
+
+  productsReturned.forEach((returnedItem) => {
+    const importedItem = importedCoupon.productsImported.find(
+      (item) => item.code === returnedItem.code
+    );
+
+    if (importedItem) {
+      if (importedItem.currentQuantity < returnedItem.quantity) {
+        hasError = true;
+      } else {
+        importedItem.currentQuantity -= returnedItem.quantity;
+      }
+    }
+  });
+
+  if (hasError) { 
+    return res.status(400).json({
+      status: "fail",
+      data: {
+        message: "The quantity of goods to be returned has exceeded the current quantity of goods!",
+      },
+    });
+  }
+
+  await importedCoupon.save();
 
   if (!returnOfUser) {
     const newReturn = await Return.create({
@@ -101,29 +251,27 @@ exports.addReturn = catching(async (req, res, next) => {
       productsReturned: productsReturned,
     });
 
-    productsReturned.map(item => {
-      console.log(item)
-    })
-
-    await Promise.all(productsReturned.map(async (item) => {
-      await Promise.all([
-        Product.findOneAndUpdate(
-          { userId: userId, code: item.code },
-          { $inc: { quantity: - item.quantity } },
-          { new: true }
-        ),
-        ProductGroup.findOneAndUpdate(
-          { userId: userId, _id: item.productGroup[0]._id },
-          { $inc: { quantity: - Number(item.quantity) } },
-          { new: true }
-        ),
-        Trademark.findOneAndUpdate(
-          { userId: userId, _id: item.trademark[0]._id },
-          { $inc: { quantity: - Number(item.quantity) } },
-          { new: true }
-        )
-      ]);
-    }));
+    await Promise.all(
+      productsReturned.map(async (item) => {
+        await Promise.all([
+          Product.findOneAndUpdate(
+            { userId: userId, code: item.code },
+            { $inc: { quantity: -item.quantity } },
+            { new: true }
+          ),
+          ProductGroup.findOneAndUpdate(
+            { userId: userId, _id: item.productGroup[0]._id },
+            { $inc: { quantity: -Number(item.quantity) } },
+            { new: true }
+          ),
+          Trademark.findOneAndUpdate(
+            { userId: userId, _id: item.trademark[0]._id },
+            { $inc: { quantity: -Number(item.quantity) } },
+            { new: true }
+          ),
+        ]);
+      })
+    );
 
     res.status(201).json({
       status: "success",

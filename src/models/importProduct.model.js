@@ -56,6 +56,10 @@ const ImportSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
+      currentQuantity: {
+        type: Number,
+        required: true,
+      },
       productGroup: [
         {
           _id: {
