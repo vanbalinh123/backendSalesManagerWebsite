@@ -71,116 +71,19 @@ exports.getReturns = catching(async (req, res, next) => {
     .skip(currentPage * returnPerPage)
     .exec();
 
+  const importedCoupon = await Import.find({
+      userId: userId,
+    });
+
   res.json({
     return: returned,
     currentPage,
     totalPages,
     returnPerPage,
     totalReturned,
+    import: importedCoupon
   });
 });
-
-// exports.addReturn = catching(async (req, res, next) => {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return next(new AppError("Data is not valid", 422, errors.array()));
-//   }
-
-//   const userId = req.user._id;
-//   const {
-//     codeImported,
-//     status,
-//     code,
-//     note,
-//     day,
-//     month,
-//     year,
-//     totalCost,
-//     productsReturned,
-//   } = req.body;
-
-//   const returnOfUser = await Return.findOne({
-//     userId: userId,
-//     code: code,
-//   });
-
-
-//   const importedCoupon = await Import.findOne({
-//      userId: userId, code: codeImported 
-//   })
-
-//   // await Promise.all(
-//     productsReturned.map(async (returnedItem) => {
-//       const importedItem = importedCoupon.productsImported.find(
-//         (item) => item.code === returnedItem.code
-//       );
-  
-//       if (importedItem) {
-//         if(importedItem.currentQuantity < returnedItem.quantity) {
-//           res.status(400).json({
-//             status: "fail",
-//             data: {
-//               message: 'Fail roofi'
-//             }
-//             })
-//         } else {
-//           importedItem.currentQuantity -= returnedItem.quantity;
-//         }
-        
-//       }
-//     })
-//   // );
-  
-//   await importedCoupon.save();
-  
-
-//   if (!returnOfUser) {
-//     const newReturn = await Return.create({
-//       userId: userId,
-//       status: status,
-//       code: code,
-//       note: note,
-//       day: day,
-//       month: month,
-//       year: year,
-//       totalCost: totalCost,
-//       productsReturned: productsReturned,
-//     });
-
-//     await Promise.all(
-//       productsReturned.map(async (item) => {
-//         await Promise.all([
-//           Product.findOneAndUpdate(
-//             { userId: userId, code: item.code },
-//             { $inc: { quantity: -item.quantity } },
-//             { new: true }
-//           ),
-//           ProductGroup.findOneAndUpdate(
-//             { userId: userId, _id: item.productGroup[0]._id },
-//             { $inc: { quantity: -Number(item.quantity) } },
-//             { new: true }
-//           ),
-//           Trademark.findOneAndUpdate(
-//             { userId: userId, _id: item.trademark[0]._id },
-//             { $inc: { quantity: -Number(item.quantity) } },
-//             { new: true }
-//           ),
-//         ]);
-  
-//       })
-//     );
-    
-
-//     res.status(201).json({
-//       status: "success",
-//       data: {
-//         returned: newReturn,
-//       },
-//     });
-//   } else {
-//     res.status(422).json({ message: "Error!!! Your Return Code is existed!" });
-//   }
-// });
 
 exports.addReturn = catching(async (req, res, next) => {
   const errors = validationResult(req);
@@ -238,6 +141,8 @@ exports.addReturn = catching(async (req, res, next) => {
 
   await importedCoupon.save();
 
+  const updatedImport = await Import.findOne({ userId: userId, code: codeImported });
+
   if (!returnOfUser) {
     const newReturn = await Return.create({
       userId: userId,
@@ -256,17 +161,17 @@ exports.addReturn = catching(async (req, res, next) => {
         await Promise.all([
           Product.findOneAndUpdate(
             { userId: userId, code: item.code },
-            { $inc: { quantity: -item.quantity } },
+            { $inc: { quantity: - Number(item.quantity) } },
             { new: true }
           ),
           ProductGroup.findOneAndUpdate(
             { userId: userId, _id: item.productGroup[0]._id },
-            { $inc: { quantity: -Number(item.quantity) } },
+            { $inc: { quantity: - Number(item.quantity) } },
             { new: true }
           ),
           Trademark.findOneAndUpdate(
             { userId: userId, _id: item.trademark[0]._id },
-            { $inc: { quantity: -Number(item.quantity) } },
+            { $inc: { quantity: - Number(item.quantity) } },
             { new: true }
           ),
         ]);
@@ -277,6 +182,7 @@ exports.addReturn = catching(async (req, res, next) => {
       status: "success",
       data: {
         returned: newReturn,
+        imported: updatedImport
       },
     });
   } else {
