@@ -104,6 +104,25 @@ exports.addReturn = catching(async (req, res, next) => {
     productsReturned,
   } = req.body;
 
+  if(!code) {
+    return res.status(400).json({
+      status: "fail",
+      data: {
+        message: "Code cannot be blank",
+      },
+    });
+  };
+
+  if(!note) {
+    return res.status(400).json({
+      status: "fail",
+      data: {
+        message: "Note cannot be blank",
+      },
+    });
+  }
+
+
   const returnOfUser = await Return.findOne({
     userId: userId,
     code: code,
